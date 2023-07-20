@@ -1,0 +1,12 @@
+ol {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  height: 600px;
+  width: 500px;
+  overflow: auto;
+}
+
+ol li {
+  margin-left: 10px;
+}

@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  frontend:
+    image: "cat-names-frontend"
+    depends_on:
+      - "backend"
+    build:
+      context: ./random-cat-names-frontend
+      dockerfile: Dockerfile
+    ports:
+      - 5173:5173
+    container_name: "cat-names-frontend"
+    networks:
+      - dev
+
+  backend:
+    image: "cat-names-backend"
+    build:
+      context: ./random-cat-names-backend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    container_name: "cat-names-backend"
+    networks:
+      - dev
